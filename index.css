@@ -48,6 +48,7 @@ footer {
   text-align: center;
   line-height: 90px;
   box-shadow: 0px 0px 10px rgba(41, 40, 40, 0.1);
+  transition: left 0.5s, top 0.5s;
 }
 
 .piece:hover {
