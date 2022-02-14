@@ -54,3 +54,19 @@ footer {
 .piece:hover {
   border: inset;
 }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5em;
+}
+
+.button {
+  padding: 8px;
+  margin: 0.5em;
+  border-radius: 3px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+  font-weight: bold;
+  background-color: white;
+}
