@@ -7,6 +7,11 @@ randomButton.addEventListener("click", randomize);
 function init() {
   for (let i = 0; i < 9; i++) {
     const piece = document.querySelector("#p" + i)
+
+    if (piece != null) {
+      piece.addEventListener("click", movePiece, false)
+    }
+
     pieces.push(piece)
   }
 
@@ -46,6 +51,39 @@ function checkValidGame(array) {
   }
 
   return inversions % 2 === 0
+}
+
+function movePiece() {
+  let index = pieces.indexOf(this)
+  // left and medium columns
+  if (index % 3 !== 0) {
+    if (!pieces[index - 1]) {
+      pieces[index - 1] = this
+      pieces[index] = null
+    }
+  }
+  // right and medium columns
+  if (index % 3 !== 2) {
+    if (!pieces[index + 1]) {
+      pieces[index + 1] = this
+      pieces[index] = null
+    }
+  }
+  // top and medium row
+  if (index > 2) {
+    if (!pieces[index - 3]) {
+      pieces[index - 3] = this
+      pieces[index] = null
+    }
+  }
+  // bottom and medium row
+  if (index < 6) {
+    if (!pieces[index + 3]) {
+      pieces[index + 3] = this
+      pieces[index] = null
+    }
+  }
+  render()
 }
 
 init()
